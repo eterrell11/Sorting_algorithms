@@ -17,8 +17,7 @@ int main()
     cout << "How long of a vector do you want to sort?" << endl;
     cin >> n;
     cout << "You chose n = " << n << endl;
-
-   // int alg = 1; //Which sorting algorithm to use;
+    int alg; //Which sorting algorithm to use;
     int low = 0;
     int high = n - 1;
 
@@ -26,16 +25,35 @@ int main()
     srand(unsigned(time(nullptr)));
     std::vector<int> v(n);
     generate(v.begin(), v.end(), rand);
-
-    
-
     cout << "I would like to sort the following vector of integers: " << endl;
+
+    cout << "Using the following algorithm: " << endl;
+    cout << "Enter 1 for QuickSort, 2 for Bubble :" << endl << endl;
+    cin >> alg;
     for (int i = 0; i < n; i++)
         cout << v[i] << endl;
+    cout << endl;
 
-    SortingAlgorithms sort;
+    switch (alg)
+    {
+        case 1:
+        {
+            cout << "QuickSort selected" << endl;
+            QuickSort sort;
+            v = sort.Quicksort(v, low, high); }
+        case 2:
+        {
+            cout << "Bubble selected" << endl;
+            Bubble sort;
+            v = sort.bubble(v);
+        }
+        default:
+        {
+            cout << " That number isn't an option, you silly goose" << endl;
+        }
+    }
 
-    v = sort.Quicksort(v, low, high);
+
     cout << endl;
     cout << "The sorted vector : " << endl;
     for (int i = 0; i < n; i++)

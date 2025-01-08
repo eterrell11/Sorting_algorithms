@@ -14,3 +14,9 @@ public:
 	std::vector<int> bubble(std::vector<int>& v);
 };
 
+class Sweeps
+{
+public:
+	std::vector<int> sweeps(std::vector<int>& v);
+};
+

@@ -28,7 +28,7 @@ int main()
     cout << "I would like to sort the following vector of integers: " << endl;
 
     cout << "Using the following algorithm: " << endl;
-    cout << "Enter 1 for QuickSort, 2 for Bubble :" << endl << endl;
+    cout << "Enter 1 for QuickSort, 2 for Bubble, 3 for Selection :" << endl << endl;
     cin >> alg;
     for (int i = 0; i < n; i++)
         cout << v[i] << endl;
@@ -38,15 +38,22 @@ int main()
     {
         case 1:
         {
-            cout << "QuickSort selected" << endl;
+            cout << "QuickSort sort selected" << endl;
             QuickSort sort;
-            v = sort.Quicksort(v, low, high); }
+            v = sort.Quicksort(v, low, high);
+            break; }
         case 2:
         {
-            cout << "Bubble selected" << endl;
+            cout << "Bubble sort selected" << endl;
             Bubble sort;
             v = sort.bubble(v);
-        }
+            break; }
+        case 3:
+        {
+            cout << "Selection sort selected" << endl;
+            Sweeps sort;
+            v = sort.sweeps(v);
+            break; }
         default:
         {
             cout << " That number isn't an option, you silly goose" << endl;

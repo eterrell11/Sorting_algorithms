@@ -45,3 +45,28 @@ std::vector<int> Bubble::bubble(std::vector<int>& v)
     }
     return v;
 }
+
+std::vector<int> Sweeps::sweeps(std::vector<int>& v)
+{
+    // Like bubble, but keeps track of indices and thus limits swaps
+    int maxit = v.size();
+    int it = maxit;
+    int max;
+    int index;
+    for (int j = 0; j < maxit; j++)
+    {
+        max = v[0];
+        index = 0;
+        for (int i = 0; i < it; i++)
+        {
+            if (v[i] > max) {
+                max = v[i];
+                index = i;
+            }
+        }
+        std::swap(v[it-1], v[index]);
+        it--;
+
+    }
+    return v;
+}

@@ -25,14 +25,10 @@ int main()
     srand(unsigned(time(nullptr)));
     std::vector<int> v(n);
     generate(v.begin(), v.end(), rand);
-    cout << "I would like to sort the following vector of integers: " << endl;
 
     cout << "Using the following algorithm: " << endl;
     cout << "Enter 1 for QuickSort, 2 for Bubble, 3 for Selection :" << endl << endl;
     cin >> alg;
-    for (int i = 0; i < n; i++)
-        cout << v[i] << endl;
-    cout << endl;
 
     switch (alg)
     {
@@ -63,6 +59,11 @@ int main()
 
     cout << endl;
     cout << "The sorted vector : " << endl;
-    for (int i = 0; i < n; i++)
-        cout << v[i] << endl;
+    for (int i = 1; i < n; i++)
+        if (v[i] <= v[i - 1])
+        {
+            cout << "ERROR: sorting failed" << endl;
+            break;
+        }
+    cout << "Great success!" << endl;
 }
